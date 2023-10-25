@@ -1,0 +1,3470 @@
+{
+  "comment_payload": {
+    "body": {
+      "jira_id": "BASH-19580",
+      "jira_task_type": "Reproduced",
+      "hotfix_comment": {
+        "subject": "Update from 'srese-jira-hotfix-bash' lambda in 'Concur Integration Devscratch'.",
+        "details": {
+          "s3_hotfix_folder": "hotfix-payloads",
+          "jira_component": "Outtask non-compiled ",
+          "issue_type": "Hot Fix Request",
+          "patch_priority": "3",
+          "ddl_patch": "non-DDL",
+          "hotfix_reason": "Scheduled Patch",
+          "patch_name": "OuttaskPatch_Release_release_SU233__2023_10_10_214156",
+          "hotfix_su_ver": 233,
+          "stable_su_ver": 226,
+          "prod_su_ver": 233,
+          "s3_bucket": "srese-hotfix-data",
+          "hotfix_s3_location": "hotfix-payloads/current_hotfix.json",
+          "deploy_to_stable": false,
+          "artifactory_path": "util-staging-local/t1/Patches/SU233/OuttaskPatch_Release_release_SU233__2023_10_10_214156.exe",
+          "json_payload": "{\"HOTFIX_PATH\": \"util-staging-local/t1/Patches/SU233/OuttaskPatch_Release_release_SU233__2023_10_10_214156.exe\", \"HOTFIX_JIRA_ID\": \"BASH-19580\", \"deploy_to_stable\": false}",
+          "env_stack": "ephemeral",
+          "comment_text": "Hotfix for Jira ticket BASH-19580, SU233 with package: OuttaskPatch_Release_release_SU233__2023_10_10_214156.exe deploying to ephemeral via Hotfix Pipeline execution. Prod SU version is currently SU233."
+        }
+      }
+    }
+  },
+  "id_list": {
+    "Open": {
+      "status_id": "1"
+    },
+    "Pending CM": {
+      "status_id": "10017"
+    },
+    "Pending QA": {
+      "status_id": "10018"
+    },
+    "Pending Review": {
+      "status_id": "10019"
+    },
+    "Pending Deploy": {
+      "status_id": "10020"
+    },
+    "Closed": {
+      "status_id": "6"
+    },
+    "Pending Repro (QA)": {
+      "status_id": "10036"
+    },
+    "Pending Approval": {
+      "status_id": "10030"
+    }
+  },
+  "transition_order": [
+    "Open",
+    "Pending Repro (QA)",
+    "Pending CM",
+    "Pending QA",
+    "Pending Review",
+    "Pending Approval",
+    "Pending Deploy",
+    "Closed"
+  ],
+  "next_transitions": {
+    "expand": "transitions",
+    "transitions": [
+      {
+        "id": "21",
+        "name": "Resolve",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/10018",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/resolved.png",
+          "name": "Pending QA",
+          "id": "10018",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        }
+      },
+      {
+        "id": "31",
+        "name": "Build Failed",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        }
+      },
+      {
+        "id": "101",
+        "name": "Cancel Hotfix Request",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        }
+      }
+    ]
+  },
+  "transitions_expanded": {
+    "expand": "transitions",
+    "transitions": [
+      {
+        "id": "41",
+        "name": "Approve",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/10019",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Review",
+          "id": "10019",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        "fields": {
+          "customfield_10582": {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "custom": "com.atlassian.jira.plugin.system.customfieldtypes:textarea",
+              "customId": 10582
+            },
+            "name": "CM Main Location",
+            "fieldId": "customfield_10582",
+            "operations": [
+              "set"
+            ]
+          }
+        }
+      },
+      {
+        "id": "51",
+        "name": "Failed Test",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        "fields": {
+        }
+      },
+      {
+        "id": "111",
+        "name": "Cancel Hotfix Request",
+        "opsbarSequence": 2147483647,
+        "to": {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        "fields": {
+          "resolution": {
+            "required": true,
+            "schema": {
+              "type": "resolution",
+              "system": "resolution"
+            },
+            "name": "Resolution",
+            "fieldId": "resolution",
+            "operations": [
+              "set"
+            ],
+            "allowedValues": [
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/13",
+                "name": "Completed",
+                "id": "13"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/1",
+                "name": "Fixed",
+                "id": "1"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/14",
+                "name": "Fixed by 3rd Party",
+                "id": "14"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/5",
+                "name": "No Repro",
+                "id": "5"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/7",
+                "name": "Won't Fix",
+                "id": "7"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/9",
+                "name": "Not a Bug",
+                "id": "9"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/6",
+                "name": "By Design",
+                "id": "6"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/11",
+                "name": "Spec Change",
+                "id": "11"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/2",
+                "name": "Removed",
+                "id": "2"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/3",
+                "name": "Duplicate",
+                "id": "3"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/8",
+                "name": "Deferred",
+                "id": "8"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10",
+                "name": "Answered",
+                "id": "10"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/12",
+                "name": "Not Resolved",
+                "id": "12"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/15",
+                "name": "Fixed - Workaround",
+                "id": "15"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10000",
+                "name": "Done",
+                "id": "10000"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10001",
+                "name": "Won't Do",
+                "id": "10001"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10100",
+                "name": "Cannot Reproduce",
+                "id": "10100"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10101",
+                "name": "Canceled",
+                "id": "10101"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10102",
+                "name": "Not Feasible",
+                "id": "10102"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10103",
+                "name": "Approved",
+                "id": "10103"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10200",
+                "name": "Incomplete",
+                "id": "10200"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10300",
+                "name": "Not Needed",
+                "id": "10300"
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/resolution/10400",
+                "name": "Denied",
+                "id": "10400"
+              }
+            ]
+          },
+          "fixVersions": {
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": "version",
+              "system": "fixVersions"
+            },
+            "name": "Fix Version/s",
+            "fieldId": "fixVersions",
+            "operations": [
+              "set",
+              "add",
+              "remove"
+            ],
+            "allowedValues": [
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15586",
+                "id": "15586",
+                "name": "2010.09 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14391",
+                "id": "14391",
+                "name": "2011.08 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14392",
+                "id": "14392",
+                "name": "2011.09 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14393",
+                "id": "14393",
+                "name": "2011.10 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14394",
+                "id": "14394",
+                "name": "2011.11 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14395",
+                "id": "14395",
+                "name": "2011.12 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14729",
+                "id": "14729",
+                "name": "2012.01 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14730",
+                "id": "14730",
+                "name": "2012.02 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14731",
+                "id": "14731",
+                "name": "2012.03 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14732",
+                "id": "14732",
+                "name": "2012.04 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14733",
+                "id": "14733",
+                "name": "2012.05 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/14734",
+                "id": "14734",
+                "name": "2012.06 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15584",
+                "id": "15584",
+                "name": "2012.07 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15585",
+                "id": "15585",
+                "name": "2012.08 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15687",
+                "id": "15687",
+                "name": "2012.09 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15587",
+                "id": "15587",
+                "name": "2012.10 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15588",
+                "id": "15588",
+                "name": "2012.11 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/15589",
+                "id": "15589",
+                "name": "2012.12 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16011",
+                "id": "16011",
+                "name": "2013.01 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16012",
+                "id": "16012",
+                "name": "2013.02 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16013",
+                "id": "16013",
+                "name": "2013.03 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16014",
+                "id": "16014",
+                "name": "2013.04 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16015",
+                "id": "16015",
+                "name": "2013.05 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16016",
+                "id": "16016",
+                "name": "2013.06 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16811",
+                "id": "16811",
+                "description": "2013.05 Monthly / Preview in 2013.05 / Stable in 2013.05",
+                "name": "CGE SU91",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16877",
+                "id": "16877",
+                "description": "2013.06 Monthly / Preview in 2013.06 / Stable in 2013.07",
+                "name": "CGE SU92",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16920",
+                "id": "16920",
+                "description": "2013.07 Monthly / Preview in 2013.08 / Stable in 2013.09",
+                "name": "CGE SU93",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16921",
+                "id": "16921",
+                "description": "2013.08 Monthly / Preview in 2013.09 / Stable in 2013.10",
+                "name": "CGE SU94",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17264",
+                "id": "17264",
+                "description": "2013.09 Monthly / Preview in 2013.09 / Stable in 2013.10",
+                "name": "CGE SU95",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17265",
+                "id": "17265",
+                "description": "2013.10 Monthly / Preview in 2013.10 / Stable in 2013.11",
+                "name": "CGE SU96",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17266",
+                "id": "17266",
+                "description": "2013.11 Monthly / Preview in 2013.11 / Stable in 2013.12",
+                "name": "CGE SU97",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17267",
+                "id": "17267",
+                "description": "2013.12 Monthly / Preview in 2013.12 / Stable in 2014.01",
+                "name": "CGE SU98",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17537",
+                "id": "17537",
+                "description": "2014.01 Monthly / Preview in 2014.01 / Stable in 2014.02",
+                "name": "CGE SU99",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17538",
+                "id": "17538",
+                "description": "2014.02 Monthly / Preview in 2014.02 / Stable in 2014.03",
+                "name": "CGE SU100",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17539",
+                "id": "17539",
+                "description": "2014.03 Monthly / Preview in 2014.03 / Stable in 2014.04",
+                "name": "CGE SU101",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16017",
+                "id": "16017",
+                "name": "2013.07 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16018",
+                "id": "16018",
+                "name": "2013.08 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16019",
+                "id": "16019",
+                "name": "2013.09 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16020",
+                "id": "16020",
+                "name": "2013.10 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16021",
+                "id": "16021",
+                "name": "2013.11 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16022",
+                "id": "16022",
+                "name": "2013.12 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18947",
+                "id": "18947",
+                "description": "2014.11 Monthly / Preview in 2014.11 / Stable in 2014.12",
+                "name": "CGE SU109",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18946",
+                "id": "18946",
+                "description": "2014.10 Monthly / Preview in 2014.10 / Stable in 2014.11",
+                "name": "CGE SU108",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18945",
+                "id": "18945",
+                "description": "2014.09 Monthly / Preview in 2014.09 / Stable in 2014.10",
+                "name": "CGE SU107",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18944",
+                "id": "18944",
+                "description": "2014.08 Monthly / Preview in 2014.08 / Stable in 2014.10",
+                "name": "CGE SU106",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18943",
+                "id": "18943",
+                "description": "2014.07 Monthly / Preview in 2014.07 / Stable in 2014.08",
+                "name": "CGE SU105",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17542",
+                "id": "17542",
+                "description": "2014.06 Monthly / Preview in 2014.07 / Stable in 2014.07",
+                "name": "CGE SU104",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17541",
+                "id": "17541",
+                "description": "2014.05 Monthly / Preview in 2014.05 / Stable in 2014.06",
+                "name": "CGE SU103",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17540",
+                "id": "17540",
+                "description": "2014.04 Monthly / Preview in 2014.04 / Stable in 2014.05",
+                "name": "CGE SU102",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17548",
+                "id": "17548",
+                "description": "CTE SU104",
+                "name": "2014.06 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17547",
+                "id": "17547",
+                "description": "CTE SU103",
+                "name": "2014.05 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17546",
+                "id": "17546",
+                "description": "CTE SU102",
+                "name": "2014.04 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17545",
+                "id": "17545",
+                "description": "CTE SU101",
+                "name": "2014.03 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17544",
+                "id": "17544",
+                "description": "CTE SU100",
+                "name": "2014.02 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/17543",
+                "id": "17543",
+                "description": "CTE SU99",
+                "name": "2014.01 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18327",
+                "id": "18327",
+                "description": "CTE SU105",
+                "name": "2014.07 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18328",
+                "id": "18328",
+                "description": "CTE SU106",
+                "name": "2014.08 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18329",
+                "id": "18329",
+                "description": "CTE SU107",
+                "name": "2014.09 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18330",
+                "id": "18330",
+                "description": "CTE SU108",
+                "name": "2014.10 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18331",
+                "id": "18331",
+                "description": "CTE SU109",
+                "name": "2014.11 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18332",
+                "id": "18332",
+                "description": "CTE SU110",
+                "name": "2014.12 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19479",
+                "id": "19479",
+                "description": "CTE SU111",
+                "name": "2015.01 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19480",
+                "id": "19480",
+                "description": "CTE SU112",
+                "name": "2015.02 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19481",
+                "id": "19481",
+                "description": "CTE SU113",
+                "name": "2015.03 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19482",
+                "id": "19482",
+                "description": "CTE SU114",
+                "name": "2015.04 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19483",
+                "id": "19483",
+                "description": "CTE SU115",
+                "name": "2015.05 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19484",
+                "id": "19484",
+                "description": "CTE SU116",
+                "name": "2015.06 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19485",
+                "id": "19485",
+                "description": "CTE SU117",
+                "name": "2015.07 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19486",
+                "id": "19486",
+                "description": "CTE SU118",
+                "name": "2015.08 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19487",
+                "id": "19487",
+                "description": "CTE SU119",
+                "name": "2015.09 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19488",
+                "id": "19488",
+                "description": "CTE SU120",
+                "name": "2015.10 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19489",
+                "id": "19489",
+                "description": "CTE SU121",
+                "name": "2015.11 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19490",
+                "id": "19490",
+                "description": "CTE SU122",
+                "name": "2015.12 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21653",
+                "id": "21653",
+                "description": "CTE SU123",
+                "name": "2016.01 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-01-14",
+                "overdue": false,
+                "userReleaseDate": "14/Jan/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21654",
+                "id": "21654",
+                "description": "CTE SU124",
+                "name": "2016.02 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-02-18",
+                "overdue": false,
+                "userReleaseDate": "18/Feb/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22398",
+                "id": "22398",
+                "description": "CTE SU125",
+                "name": "2016.03 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-03-17",
+                "overdue": false,
+                "userReleaseDate": "17/Mar/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22399",
+                "id": "22399",
+                "description": "CTE SU126",
+                "name": "2016.04 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-04-14",
+                "overdue": false,
+                "userReleaseDate": "14/Apr/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/18948",
+                "id": "18948",
+                "description": "2014.12 Monthly / Preview in 2014.12 / Stable in 2015.01",
+                "name": "CGE SU110",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19795",
+                "id": "19795",
+                "description": "2015.01 Monthly / Preview in 2015.01 / Stable in 2015.02",
+                "name": "CGE SU111",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19796",
+                "id": "19796",
+                "description": "2015.02 Monthly / Preview in 2015.02 / Stable in 2015.03",
+                "name": "CGE SU112",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19797",
+                "id": "19797",
+                "description": "2015.03 Monthly / Preview in 2015.03 / Stable in 2015.04",
+                "name": "CGE SU113",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/19798",
+                "id": "19798",
+                "description": "2015.04 Monthly / Preview in 2015.04 / Stable in 2015.05",
+                "name": "CGE SU114",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/20078",
+                "id": "20078",
+                "description": "2015.05 Monthly / Preview in 2015.05 / Stable in 2015.06",
+                "name": "CGE SU115",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/20079",
+                "id": "20079",
+                "description": "2015.06 Monthly / Preview in 2015.06 / Stable in 2015.07",
+                "name": "CGE SU116",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21289",
+                "id": "21289",
+                "name": "CGE SU117",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21290",
+                "id": "21290",
+                "name": "CGE SU118",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21291",
+                "id": "21291",
+                "name": "CGE SU119",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/21292",
+                "id": "21292",
+                "name": "CGE SU120",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16899",
+                "id": "16899",
+                "name": "CGE Mobile 1.0",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16900",
+                "id": "16900",
+                "name": "CGE Mobile 1.1",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16901",
+                "id": "16901",
+                "name": "CGE Mobile 1.2",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16902",
+                "id": "16902",
+                "name": "CGE Mobile 1.3",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16903",
+                "id": "16903",
+                "name": "CGE Mobile 1.4",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16904",
+                "id": "16904",
+                "name": "CGE Mobile 1.5",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/16905",
+                "id": "16905",
+                "name": "CGE Mobile 1.6",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22106",
+                "id": "22106",
+                "name": "CGE SU121",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22292",
+                "id": "22292",
+                "name": "CGE SU122",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22293",
+                "id": "22293",
+                "name": "CGE SU123",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22294",
+                "id": "22294",
+                "name": "CGE SU124",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22295",
+                "id": "22295",
+                "name": "CGE SU125",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22304",
+                "id": "22304",
+                "description": "CTE SU122",
+                "name": "2015.12 Patches",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2015-12-10",
+                "userReleaseDate": "10/Dec/15",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22400",
+                "id": "22400",
+                "description": "CTE SU127",
+                "name": "2016.05 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-05-12",
+                "overdue": false,
+                "userReleaseDate": "12/May/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22401",
+                "id": "22401",
+                "description": "CTE SU128",
+                "name": "2016.06 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-06-09",
+                "overdue": false,
+                "userReleaseDate": "09/Jun/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22402",
+                "id": "22402",
+                "description": "CTE SU129",
+                "name": "2016.07 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-07-07",
+                "overdue": false,
+                "userReleaseDate": "07/Jul/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22403",
+                "id": "22403",
+                "description": "CTE SU130",
+                "name": "2016.08 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-08-11",
+                "overdue": false,
+                "userReleaseDate": "11/Aug/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22404",
+                "id": "22404",
+                "description": "CTE SU131",
+                "name": "2016.09 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-09-08",
+                "overdue": false,
+                "userReleaseDate": "08/Sep/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22405",
+                "id": "22405",
+                "description": "CTE SU132",
+                "name": "2016.10 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-10-13",
+                "overdue": false,
+                "userReleaseDate": "13/Oct/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22406",
+                "id": "22406",
+                "description": "CTE SU133",
+                "name": "2016.11 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-11-03",
+                "overdue": false,
+                "userReleaseDate": "03/Nov/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22407",
+                "id": "22407",
+                "description": "CTE SU134",
+                "name": "2016.12 Monthly",
+                "archived": true,
+                "released": false,
+                "releaseDate": "2016-12-08",
+                "overdue": false,
+                "userReleaseDate": "08/Dec/16",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22806",
+                "id": "22806",
+                "name": "CGE SU126",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22807",
+                "id": "22807",
+                "name": "CGE SU127",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22808",
+                "id": "22808",
+                "name": "CGE SU128",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22809",
+                "id": "22809",
+                "name": "CGE SU129",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/23708",
+                "id": "23708",
+                "name": "CGE SU130",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22810",
+                "id": "22810",
+                "name": "CGE SU131",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22811",
+                "id": "22811",
+                "name": "CGE SU132",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22812",
+                "id": "22812",
+                "name": "CGE SU133",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22813",
+                "id": "22813",
+                "name": "CGE SU134",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/22814",
+                "id": "22814",
+                "name": "CGE SU135",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24912",
+                "id": "24912",
+                "name": "CGE SU136",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24913",
+                "id": "24913",
+                "name": "CGE SU137",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24914",
+                "id": "24914",
+                "name": "CGE SU138",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24915",
+                "id": "24915",
+                "name": "CGE SU139",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24916",
+                "id": "24916",
+                "name": "CGE SU140",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24917",
+                "id": "24917",
+                "name": "CGE SU141",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24918",
+                "id": "24918",
+                "name": "CGE SU143",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24919",
+                "id": "24919",
+                "name": "CGE SU144",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24920",
+                "id": "24920",
+                "name": "CGE SU145",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/24921",
+                "id": "24921",
+                "name": "CGE SU146",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25199",
+                "id": "25199",
+                "description": "SU135",
+                "name": "2017.01 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-01-18",
+                "userReleaseDate": "18/Jan/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25328",
+                "id": "25328",
+                "description": "SU136",
+                "name": "2017.02 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-02-15",
+                "userReleaseDate": "15/Feb/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25329",
+                "id": "25329",
+                "description": "SU137",
+                "name": "2017.03 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-03-17",
+                "userReleaseDate": "17/Mar/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25330",
+                "id": "25330",
+                "description": "SU138",
+                "name": "2017.04 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-04-21",
+                "userReleaseDate": "21/Apr/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25331",
+                "id": "25331",
+                "description": "SU139",
+                "name": "2017.05 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-05-19",
+                "userReleaseDate": "19/May/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25332",
+                "id": "25332",
+                "description": "SU140",
+                "name": "2017.06 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-06-23",
+                "userReleaseDate": "23/Jun/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25333",
+                "id": "25333",
+                "description": "SU141",
+                "name": "2017.07 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-07-21",
+                "userReleaseDate": "21/Jul/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25334",
+                "id": "25334",
+                "description": "SU142",
+                "name": "2017.08 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-08-18",
+                "userReleaseDate": "18/Aug/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25335",
+                "id": "25335",
+                "description": "SU143",
+                "name": "2017.09 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-09-15",
+                "userReleaseDate": "15/Sep/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25336",
+                "id": "25336",
+                "description": "SU144",
+                "name": "2017.10 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-10-13",
+                "userReleaseDate": "13/Oct/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25337",
+                "id": "25337",
+                "description": "SU145",
+                "name": "2017.11 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-11-03",
+                "userReleaseDate": "03/Nov/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/25338",
+                "id": "25338",
+                "description": "SU146",
+                "name": "2017.12 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2017-12-08",
+                "userReleaseDate": "08/Dec/17",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/26293",
+                "id": "26293",
+                "name": "Ungroomed",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/26419",
+                "id": "26419",
+                "name": "2017.05 Patches",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/26537",
+                "id": "26537",
+                "name": "2107.06",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28620",
+                "id": "28620",
+                "name": "CGE SU147",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29225",
+                "id": "29225",
+                "description": "SU147",
+                "name": "2018.01 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-01-12",
+                "userReleaseDate": "12/Jan/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28621",
+                "id": "28621",
+                "name": "CGE SU148",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-02-15",
+                "userReleaseDate": "15/Feb/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29306",
+                "id": "29306",
+                "description": "SU148",
+                "name": "2018.02 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-02-09",
+                "userReleaseDate": "09/Feb/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28622",
+                "id": "28622",
+                "name": "CGE SU149",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-04-19",
+                "userReleaseDate": "19/Apr/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29393",
+                "id": "29393",
+                "description": "SU149",
+                "name": "2018.03 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-03-16",
+                "userReleaseDate": "16/Mar/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28623",
+                "id": "28623",
+                "name": "CGE SU150",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-04-18",
+                "userReleaseDate": "18/Apr/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29394",
+                "id": "29394",
+                "description": "SU150",
+                "name": "2018.04 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-04-13",
+                "userReleaseDate": "13/Apr/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28624",
+                "id": "28624",
+                "name": "CGE SU151",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-05-16",
+                "userReleaseDate": "16/May/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29395",
+                "id": "29395",
+                "description": "SU151",
+                "name": "2018.05 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-05-11",
+                "userReleaseDate": "11/May/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28625",
+                "id": "28625",
+                "name": "CGE SU152",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-06-13",
+                "userReleaseDate": "13/Jun/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29396",
+                "id": "29396",
+                "description": "SU152",
+                "name": "2018.06 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-06-08",
+                "userReleaseDate": "08/Jun/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28626",
+                "id": "28626",
+                "name": "CGE SU153",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/32617",
+                "id": "32617",
+                "name": "CGE UI153",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29466",
+                "id": "29466",
+                "description": "SU153",
+                "name": "2018.07 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-07-13",
+                "userReleaseDate": "13/Jul/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29467",
+                "id": "29467",
+                "description": "SU154",
+                "name": "2018.08 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-08-17",
+                "userReleaseDate": "17/Aug/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/32186",
+                "id": "32186",
+                "name": "SU154",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28627",
+                "id": "28627",
+                "name": "CGE SU154",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28628",
+                "id": "28628",
+                "name": "CGE SU155",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29468",
+                "id": "29468",
+                "description": "SU155",
+                "name": "2018.09 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-09-21",
+                "userReleaseDate": "21/Sep/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28629",
+                "id": "28629",
+                "name": "CGE SU156",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29469",
+                "id": "29469",
+                "description": "SU156",
+                "name": "2018.10 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-10-19",
+                "userReleaseDate": "19/Oct/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28630",
+                "id": "28630",
+                "name": "CGE SU157",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29470",
+                "id": "29470",
+                "description": "SU157",
+                "name": "2018.11 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-11-09",
+                "userReleaseDate": "09/Nov/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/28631",
+                "id": "28631",
+                "name": "CGE SU158",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/29471",
+                "id": "29471",
+                "description": "SU158",
+                "name": "2018.12 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2018-12-07",
+                "userReleaseDate": "07/Dec/18",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33892",
+                "id": "33892",
+                "name": "CGE SU159",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33891",
+                "id": "33891",
+                "description": "SU159",
+                "name": "2019.01 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-01-11",
+                "userReleaseDate": "11/Jan/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33893",
+                "id": "33893",
+                "name": "CGE SU160",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33894",
+                "id": "33894",
+                "description": "SU160",
+                "name": "2019.02 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-02-08",
+                "userReleaseDate": "08/Feb/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33895",
+                "id": "33895",
+                "name": "CGE SU161",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33896",
+                "id": "33896",
+                "description": "SU161",
+                "name": "2019.03 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-03-16",
+                "userReleaseDate": "16/Mar/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33897",
+                "id": "33897",
+                "name": "CGE SU162",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33898",
+                "id": "33898",
+                "description": "SU162",
+                "name": "2019.04 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-04-12",
+                "userReleaseDate": "12/Apr/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33899",
+                "id": "33899",
+                "name": "CGE SU163",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33900",
+                "id": "33900",
+                "description": "SU163",
+                "name": "2019.05 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-05-10",
+                "userReleaseDate": "10/May/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33901",
+                "id": "33901",
+                "name": "CGE SU164",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33902",
+                "id": "33902",
+                "description": "SU164",
+                "name": "2019.06 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-06-07",
+                "userReleaseDate": "07/Jun/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33903",
+                "id": "33903",
+                "name": "CGE SU165",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33904",
+                "id": "33904",
+                "description": "SU165",
+                "name": "2019.07 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-07-12",
+                "userReleaseDate": "12/Jul/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33906",
+                "id": "33906",
+                "description": "SU166",
+                "name": "2019.08 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-08-09",
+                "userReleaseDate": "09/Aug/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33907",
+                "id": "33907",
+                "name": "CGE SU167",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33908",
+                "id": "33908",
+                "description": "SU167",
+                "name": "2019.09 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-09-13",
+                "userReleaseDate": "13/Sep/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33909",
+                "id": "33909",
+                "name": "CGE SU168",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33910",
+                "id": "33910",
+                "description": "SU168",
+                "name": "2019.10 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-10-11",
+                "userReleaseDate": "11/Oct/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33911",
+                "id": "33911",
+                "name": "CGE SU169",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33912",
+                "id": "33912",
+                "description": "SU169",
+                "name": "2019.11 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-11-08",
+                "userReleaseDate": "08/Nov/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33913",
+                "id": "33913",
+                "name": "CGE SU170",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33914",
+                "id": "33914",
+                "description": "SU170",
+                "name": "2019.12 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2019-12-06",
+                "userReleaseDate": "06/Dec/19",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/33955",
+                "id": "33955",
+                "name": "2018.12 Patches",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/39911",
+                "id": "39911",
+                "name": "Mobile",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/43591",
+                "id": "43591",
+                "name": "CGE SU171",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/44383",
+                "id": "44383",
+                "description": "SU171",
+                "name": "2020.01 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/44384",
+                "id": "44384",
+                "name": "CGE SU172",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/44385",
+                "id": "44385",
+                "description": "SU172",
+                "name": "2020.02 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/45290",
+                "id": "45290",
+                "name": "CGE SU173",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/45291",
+                "id": "45291",
+                "description": "SU173",
+                "name": "2020.03 Monthly",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/48010",
+                "id": "48010",
+                "name": "CGE SU174",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/48011",
+                "id": "48011",
+                "name": "CGE SU175",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/48012",
+                "id": "48012",
+                "name": "CGE SU176",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/49212",
+                "id": "49212",
+                "name": "2020.05 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/49723",
+                "id": "49723",
+                "name": "2020.06 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/50589",
+                "id": "50589",
+                "name": "2020.07 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/50595",
+                "id": "50595",
+                "name": "CGE SU177",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/50596",
+                "id": "50596",
+                "name": "CGE SU179",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/51486",
+                "id": "51486",
+                "name": "2020.08 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/51370",
+                "id": "51370",
+                "name": "2020.09 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/53084",
+                "id": "53084",
+                "name": "CGE SU180",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/53085",
+                "id": "53085",
+                "name": "CGE SU181",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/53302",
+                "id": "53302",
+                "name": "2020.11 Monthly",
+                "archived": true,
+                "released": true,
+                "releaseDate": "2020-11-15",
+                "userReleaseDate": "15/Nov/20",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/53414",
+                "id": "53414",
+                "description": "su182",
+                "name": "2020.12 Monthly",
+                "archived": true,
+                "released": true,
+                "startDate": "2020-12-05",
+                "releaseDate": "2020-12-05",
+                "userStartDate": "05/Dec/20",
+                "userReleaseDate": "05/Dec/20",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/54535",
+                "id": "54535",
+                "description": "SU183 Deployment",
+                "name": "2021.01 Monthly",
+                "archived": true,
+                "released": true,
+                "startDate": "2021-01-16",
+                "releaseDate": "2021-01-16",
+                "userStartDate": "16/Jan/21",
+                "userReleaseDate": "16/Jan/21",
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/54330",
+                "id": "54330",
+                "description": "SU184",
+                "name": "2021.02 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/54989",
+                "id": "54989",
+                "name": "2021.03 Monthly",
+                "archived": true,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/55723",
+                "id": "55723",
+                "name": "CGE 2103",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/55724",
+                "id": "55724",
+                "name": "CGE 2104",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/55725",
+                "id": "55725",
+                "name": "CGE 2105",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/55538",
+                "id": "55538",
+                "name": "2021.04 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/56202",
+                "id": "56202",
+                "name": "2021.05 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/56715",
+                "id": "56715",
+                "description": "SU188",
+                "name": "2021.06 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/57592",
+                "id": "57592",
+                "name": "SU188",
+                "archived": false,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/57880",
+                "id": "57880",
+                "description": "SU188",
+                "name": "CGE 2106",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/57881",
+                "id": "57881",
+                "description": "SU189",
+                "name": "CGE 2107",
+                "archived": true,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/57882",
+                "id": "57882",
+                "name": "CGE 2109",
+                "archived": false,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/57883",
+                "id": "57883",
+                "name": "CGE 2110",
+                "archived": false,
+                "released": true,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/58686",
+                "id": "58686",
+                "name": "2021.07 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/59687",
+                "id": "59687",
+                "name": "2021.08 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/61485",
+                "id": "61485",
+                "name": "2021.09 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/62881",
+                "id": "62881",
+                "name": "2021.10 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/65603",
+                "id": "65603",
+                "name": "CGE 2111",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/65604",
+                "id": "65604",
+                "name": "CGE 2112",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/65605",
+                "id": "65605",
+                "name": "CGE 2201",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/65606",
+                "id": "65606",
+                "name": "CGE 2202",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/65683",
+                "id": "65683",
+                "name": "2021.11 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/66503",
+                "id": "66503",
+                "name": "2021.12 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/68295",
+                "id": "68295",
+                "description": "SU195",
+                "name": "2022.01 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/69192",
+                "id": "69192",
+                "description": "SU196 SU197",
+                "name": "2022.02 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/69017",
+                "id": "69017",
+                "name": "2022.02.03 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/69798",
+                "id": "69798",
+                "name": "2022.03 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/69822",
+                "id": "69822",
+                "name": "CGE 2203",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70129",
+                "id": "70129",
+                "name": "CGE 2204",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70160",
+                "id": "70160",
+                "name": "CGE 2205",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70161",
+                "id": "70161",
+                "name": "CGE 2206",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70162",
+                "id": "70162",
+                "name": "CGE 2207",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70163",
+                "id": "70163",
+                "name": "CGE 2208",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70164",
+                "id": "70164",
+                "name": "CGE 2209",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70165",
+                "id": "70165",
+                "name": "CGE 2210",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70166",
+                "id": "70166",
+                "name": "CGE 2211",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70167",
+                "id": "70167",
+                "name": "CGE 2212",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70168",
+                "id": "70168",
+                "name": "2022.04 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70169",
+                "id": "70169",
+                "name": "2022.05 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70170",
+                "id": "70170",
+                "name": "2022.06 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70171",
+                "id": "70171",
+                "name": "2022.07 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70172",
+                "id": "70172",
+                "name": "2022.08 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70173",
+                "id": "70173",
+                "name": "2022.09 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70174",
+                "id": "70174",
+                "name": "2022.10 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70175",
+                "id": "70175",
+                "name": "2022.11 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/70176",
+                "id": "70176",
+                "name": "2022.12 Monthly",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/74614",
+                "id": "74614",
+                "name": "CGE 2301",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/74756",
+                "id": "74756",
+                "name": "CGE 2302",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75109",
+                "id": "75109",
+                "name": "CGE 2303",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75939",
+                "id": "75939",
+                "name": "CGE 2304",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75940",
+                "id": "75940",
+                "name": "CGE 2305",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75941",
+                "id": "75941",
+                "name": "CGE 2306",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75942",
+                "id": "75942",
+                "name": "CGE 2307",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75943",
+                "id": "75943",
+                "name": "CGE 2308",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75944",
+                "id": "75944",
+                "name": "CGE 2309",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75945",
+                "id": "75945",
+                "name": "CGE 2310",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75946",
+                "id": "75946",
+                "name": "CGE 2311",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/version/75947",
+                "id": "75947",
+                "name": "CGE 2312",
+                "archived": false,
+                "released": false,
+                "projectId": 10500
+              }
+            ]
+          },
+          "customfield_10614": {
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": "option",
+              "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes",
+              "customId": 10614
+            },
+            "name": "Reviews",
+            "fieldId": "customfield_10614",
+            "operations": [
+              "add",
+              "set",
+              "remove"
+            ],
+            "allowedValues": [
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/16211",
+                "value": "Dev Design",
+                "id": "16211",
+                "disabled": false
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/16210",
+                "value": "QA Design",
+                "id": "16210",
+                "disabled": false
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/15964",
+                "value": "Dev",
+                "id": "15964",
+                "disabled": false
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/16475",
+                "value": "Unit Test",
+                "id": "16475",
+                "disabled": false
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/16622",
+                "value": "UX Reviewed",
+                "id": "16622",
+                "disabled": false
+              },
+              {
+                "self": "https://jira.concur.com/rest/api/2/customFieldOption/16151",
+                "value": "FTP",
+                "id": "16151",
+                "disabled": false
+              }
+            ]
+          },
+          "labels": {
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": "string",
+              "system": "labels"
+            },
+            "name": "Labels",
+            "fieldId": "labels",
+            "autoCompleteUrl": "https://jira.concur.com/rest/api/1.0/labels/suggest?query=",
+            "operations": [
+              "add",
+              "set",
+              "remove"
+            ]
+          },
+          "assignee": {
+            "required": true,
+            "schema": {
+              "type": "user",
+              "system": "assignee"
+            },
+            "name": "Assignee",
+            "fieldId": "assignee",
+            "autoCompleteUrl": "https://jira.concur.com/rest/api/latest/user/assignable/search?issueKey=BASH-19568&username=",
+            "operations": [
+              "set"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "transition_statuses": [
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/17",
+      "id": "17",
+      "name": "Hot Fix Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10017",
+          "description": "Fix ready for deployment to QA",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/visible.png",
+          "name": "Pending CM",
+          "id": "10017",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10018",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/resolved.png",
+          "name": "Pending QA",
+          "id": "10018",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10019",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Review",
+          "id": "10019",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10020",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/document.png",
+          "name": "Pending Deploy",
+          "id": "10020",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10036",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "Pending Repro (QA)",
+          "id": "10036",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10030",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Approval",
+          "id": "10030",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        }
+      ]
+    },
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/31",
+      "id": "31",
+      "name": "Build Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/3",
+          "description": "This issue is being worked on by the assignee.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10008",
+          "description": "Issue is not closed, but is being defered to future activity",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/generic.png",
+          "name": "Park",
+          "id": "10008",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10024",
+          "description": "Issue is currently Blocked from further work.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/needinfo.png",
+          "name": "Blocked",
+          "id": "10024",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        }
+      ]
+    }
+  ],
+  "get_jira_transitions": [
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/17",
+      "id": "17",
+      "name": "Hot Fix Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10017",
+          "description": "Fix ready for deployment to QA",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/visible.png",
+          "name": "Pending CM",
+          "id": "10017",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10018",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/resolved.png",
+          "name": "Pending QA",
+          "id": "10018",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10019",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Review",
+          "id": "10019",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10020",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/document.png",
+          "name": "Pending Deploy",
+          "id": "10020",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10036",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "Pending Repro (QA)",
+          "id": "10036",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10030",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Approval",
+          "id": "10030",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        }
+      ]
+    },
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/31",
+      "id": "31",
+      "name": "Build Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/3",
+          "description": "This issue is being worked on by the assignee.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10008",
+          "description": "Issue is not closed, but is being defered to future activity",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/generic.png",
+          "name": "Park",
+          "id": "10008",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10024",
+          "description": "Issue is currently Blocked from further work.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/needinfo.png",
+          "name": "Blocked",
+          "id": "10024",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        }
+      ]
+    }
+  ],
+  "current_transition": [
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/17",
+      "id": "17",
+      "name": "Hot Fix Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10017",
+          "description": "Fix ready for deployment to QA",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/visible.png",
+          "name": "Pending CM",
+          "id": "10017",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10018",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/resolved.png",
+          "name": "Pending QA",
+          "id": "10018",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10019",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Review",
+          "id": "10019",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10020",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/document.png",
+          "name": "Pending Deploy",
+          "id": "10020",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10036",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "Pending Repro (QA)",
+          "id": "10036",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10030",
+          "description": "",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/email.png",
+          "name": "Pending Approval",
+          "id": "10030",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        }
+      ]
+    },
+    {
+      "self": "https://jira.concur.com/rest/api/2/issuetype/31",
+      "id": "31",
+      "name": "Build Request",
+      "subtask": false,
+      "statuses": [
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/1",
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/open.png",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "default",
+            "name": "To Do"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/6",
+          "description": "The issue is considered finished, the resolution has been verified correct.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/closed.png",
+          "name": "Closed",
+          "id": "6",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/3",
+            "id": 3,
+            "key": "done",
+            "colorName": "success",
+            "name": "Done"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/3",
+          "description": "This issue is being worked on by the assignee.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/inprogress.png",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10008",
+          "description": "Issue is not closed, but is being defered to future activity",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/generic.png",
+          "name": "Park",
+          "id": "10008",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        },
+        {
+          "self": "https://jira.concur.com/rest/api/2/status/10024",
+          "description": "Issue is currently Blocked from further work.",
+          "iconUrl": "https://jira.concur.com/images/icons/statuses/needinfo.png",
+          "name": "Blocked",
+          "id": "10024",
+          "statusCategory": {
+            "self": "https://jira.concur.com/rest/api/2/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "inprogress",
+            "name": "In Progress"
+          }
+        }
+      ]
+    }
+  ]
+}
